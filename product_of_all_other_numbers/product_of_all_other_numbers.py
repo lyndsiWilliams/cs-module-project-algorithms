@@ -5,7 +5,21 @@ Returns: a List of integers
 def product_of_all_other_numbers(arr):
     # Your code here
 
-    pass
+    # Check if array exists
+    if arr:
+        # Set a variable to hold the current product
+        product = 1
+
+        # Loop through the array, multiplying each element by the others
+        for i in arr:
+            product *= i
+
+        # Create a new array and divide the current element by itself
+        # This removes it from the product
+        new_arr = [product / i for i in arr]
+
+    return new_arr
+        
 
 
 if __name__ == '__main__':
