@@ -5,29 +5,21 @@ Returns: an integer
 def single_number(arr):
     # Your code here
 
-    # Check if the array exists
-    if arr:
-        # Set a list for the count at the length of the current array
-            # If you don't set the list as the length of the array (empty list),
-            # It will cause the list index to be out of range
-        count = [0 for i in range(len(arr))]
-        # Set a variable for the single element to live
-        single = None
+    # Create a set
+    s = set() # O(1)
 
-        # Loop through the array and add to the count
-            # This will look at each value and add 1 to the count
-            # of that index for each instance of it
-        for i in arr:
-            count[i] += 1
+    # Loop through the array
+    for i in arr: # O(n)
+        # If this iteration is in the set already, remove it
+        if i in s: # O(1)
+            s.remove(i) # O(1)
+        # Otherwise, it's a single value so add it
+        else:
+            s.add(i) # O(1)
 
-        # Loop through the counted array
-        for i in range(len(count)):
-            # If there was only 1 instance of a number...
-            if count[i] == 1:
-                # That is the single number, return it
-                single = i
-
-    return single
+    # Return the first value of the current set list
+    # There should only be one element
+    return list(s)[0] # O(1)
 
 
 if __name__ == '__main__':
